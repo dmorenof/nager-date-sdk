@@ -7,7 +7,6 @@ require __DIR__ . '/../vendor/autoload.php';
 use NagerDateSDK\Api\V4\Holidays\ByCountryCode;
 use NagerDateSDK\Configuration;
 use NagerDateSDK\NagerDateAPISDK;
-use NagerDateSDK\DTOs\PublicHolidayV4Dto;
 use NagerDateSDK\PathParams\Api\V4\Holidays\ByCountryCode\ByYear;
 
 $configuration = new Configuration();
@@ -18,6 +17,5 @@ $year->countryCode = 'ES';
 $year->year = 2026;
 
 foreach (ByCountryCode::getByYear($year) as $holiday) {
-    assert($holiday instanceof PublicHolidayV4Dto);
     echo $holiday->date, ' ', $holiday->name, "\n";
 }
